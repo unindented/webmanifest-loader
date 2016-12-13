@@ -1,0 +1,31 @@
+{
+  "name": "webmanifest-loader",
+  "description": "Help deal with Web App Manifest files.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Perez Alvarez",
+    "email": "unindented@gmail.com",
+    "url": "http://unindented.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/unindented/webmanifest-loader.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "nodeunit test/loader.js"
+  },
+  "dependencies": {
+    "async": "^2.1.4",
+    "loader-utils": "^0.2.16",
+    "lodash.template": "^4.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "nodeunit": "^0.10.2"
+  }
+}

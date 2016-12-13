@@ -1,0 +1,13 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.24.0",
+    "webmanifest-loader": "../",
+    "webpack": "^1.14.0"
+  }
+}

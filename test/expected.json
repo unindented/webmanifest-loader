@@ -1,0 +1,31 @@
+{
+  "name": "foo",
+  "short_name": "bar",
+  "description": "baz",
+  "start_url": ".",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "http://localhost:3000/images/icon_144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "http://localhost:3000/images/icon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "http://localhost:3000/images/screenshot.jpg",
+      "sizes": "640x480",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "http://localhost:3000/images/screenshot@2x.jpg",
+      "sizes": "1280x920",
+      "type": "image/jpeg"
+    }
+  ]
+}
