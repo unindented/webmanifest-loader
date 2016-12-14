@@ -72,7 +72,7 @@ Your `manifest.webmanifest` file could look like this:
 And your `webpack.config.js` file would glue everything together:
 
 ```js
-var HtmlPlugin = require('html-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -103,7 +103,7 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlPlugin({
+    new HtmlWebpackPlugin({
       title: 'Foobar',
       template: './assets/template.ejs'
     })
