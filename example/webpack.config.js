@@ -1,4 +1,5 @@
-var HtmlPlugin = require('html-webpack-plugin')
+const path = require('path')
+const HtmlPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -6,24 +7,41 @@ module.exports = {
   },
 
   output: {
-    path: './dist/',
+    path: path.resolve(__dirname, 'dist/'),
     filename: '[name].js'
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.webmanifest$/,
         include: /assets\//,
-        loader: [
-          'file?name=[name].[ext]',
-          'webmanifest'
-        ].join('!')
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          },
+          {
+            loader: 'webmanifest-loader',
+            options: {
+              name: 'Foobar',
+              shortName: 'Foobar',
+              description: 'Just an example.'
+            }
+          }
+        ]
       },
       {
         test: /\.(jpg|png)$/,
         include: /assets\//,
-        loader: 'file?name=[name].[ext]'
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
+        }
       }
     ]
   },
@@ -33,11 +51,5 @@ module.exports = {
       title: 'Foobar',
       template: './assets/template.ejs'
     })
-  ],
-
-  webmanifest: {
-    name: 'Foobar',
-    shortName: 'Foobar',
-    description: 'Just an example.'
-  }
+  ]
 }

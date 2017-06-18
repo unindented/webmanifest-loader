@@ -1,9 +1,9 @@
-var loader = require('../index.js')
-var fixture = JSON.stringify(require('./fixture.json'), null, 2)
-var expected = JSON.stringify(require('./expected.json'), null, 2)
+const loader = require('../index.js')
+const fixture = JSON.stringify(require('./fixture.json'), null, 2)
+const expected = JSON.stringify(require('./expected.json'), null, 2)
 
-var mockContext = function (options, callback) {
-  var result = {
+const mockContext = function (query, callback) {
+  const result = {
     options: {
       output: {
         publicPath: 'http://localhost:3000/'
@@ -32,8 +32,8 @@ var mockContext = function (options, callback) {
     }
   }
 
-  if (options) {
-    result.options.webmanifest = options
+  if (query) {
+    result.query = query
   }
 
   return result
@@ -42,12 +42,12 @@ var mockContext = function (options, callback) {
 module.exports.test = {
 
   'processes web app manifest': function (test) {
-    var callback = function (err, result) {
+    const callback = function (err, result) {
       test.equal(err, null)
       test.equal(result, expected)
       test.done()
     }
-    var context = mockContext({
+    const context = mockContext({
       name: 'foo',
       shortName: 'bar',
       description: 'baz'

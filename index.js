@@ -1,16 +1,16 @@
-var vm = require('vm')
-var async = require('async')
-var template = require('lodash.template')
-var loaderUtils = require('loader-utils')
+const vm = require('vm')
+const async = require('async')
+const template = require('lodash.template')
+const loaderUtils = require('loader-utils')
 
 function assign (target) {
-  var to = Object(target)
+  const to = Object(target)
 
-  for (var i = 1, l = arguments.length; i < l; i++) {
-    var source = arguments[i]
+  for (let i = 1, l = arguments.length; i < l; i++) {
+    const source = arguments[i]
 
     if (source != null) {
-      for (var key in source) {
+      for (const key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           to[key] = source[key]
         }
@@ -22,7 +22,7 @@ function assign (target) {
 }
 
 function getManifest (source, data) {
-  var processedSource = template(source)(data)
+  const processedSource = template(source)(data)
   return JSON.parse(processedSource)
 }
 
@@ -32,7 +32,7 @@ function formatManifest (manifest) {
 
 function getTasks (loaderContext, options, manifest) {
   return options.resolve.reduce(function (memo, field) {
-    var images = manifest[field]
+    const images = manifest[field]
 
     if (Array.isArray(images)) {
       memo.push.apply(memo, images.map(function (image) {
@@ -45,8 +45,8 @@ function getTasks (loaderContext, options, manifest) {
 }
 
 function resolveSrc (loaderContext, options, image, callback) {
-  var context = loaderContext.context
-  var request = loaderUtils.urlToRequest(image.src)
+  const context = loaderContext.context
+  const request = loaderUtils.urlToRequest(image.src)
 
   loaderContext.resolve(context, request, function (err, filename) {
     if (err) {
@@ -68,12 +68,12 @@ function resolveSrc (loaderContext, options, image, callback) {
 }
 
 function runModule (src, filename, publicPath) {
-  var script = new vm.Script(src, {
+  const script = new vm.Script(src, {
     filename: filename,
     displayErrors: true
   })
 
-  var sandbox = {
+  const sandbox = {
     module: {},
     __webpack_public_path__: publicPath || ''
   }
@@ -83,22 +83,22 @@ function runModule (src, filename, publicPath) {
   return sandbox.module.exports.toString()
 }
 
-var defaults = {
+const defaults = {
   resolve: ['icons', 'screenshots']
 }
 
 module.exports = function (source, map) {
   this.cacheable && this.cacheable()
-  var callback = this.async()
+  const callback = this.async()
 
-  var config = loaderUtils.getLoaderConfig(this, 'webmanifest')
-  var options = assign({
+  const config = loaderUtils.getOptions(this)
+  const options = assign({
     publicPath: this.options.output.publicPath
   }, defaults, config)
 
   try {
-    var manifest = getManifest(source, options)
-    var tasks = getTasks(this, options, manifest)
+    const manifest = getManifest(source, options)
+    const tasks = getTasks(this, options, manifest)
 
     async.parallel(tasks, function (err) {
       if (err) {

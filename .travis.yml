@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '6'
+  - '8'
 
 deploy:
   provider: npm
@@ -9,7 +9,3 @@ deploy:
     secure: tSYXbCSsI4eF2Nn4njHh9tJy93+8eAS+6oLd4JwR8PLGfWyUa9fd//b3MSqM0y8NQODk5XO5yl45Urgnad+lHas7/0KrMMuhSCmvMWII3mfmNk/BShcldsHvqC3uWAw7O8TqGhoCth8DdY/0i8m6Lu6+oGETkGdd1t49WozV5Iy2S0nrtvCHZPZaRuA3KSJzFnzhaxOGgES4yRnSCnn2rS6eh7c1rpfsiu/ZujPM0y8MvAXLjVkwnHRSQ4w2rHn0znDWjQbHcoaG9A4p0zLz+Jj5DspQuTVuHfZpVEBwncsaF5sk2NE3z9rCoxxmj4czlMcN9aEUipG9f1z4Fr7uh2At2zUuDMB52DX7sqy3q6SU9VL1C79ASI6RemmchbtAibhFB6ZW+cUxj/cCCYETc+ZtCU71RZrDSO7ezafIxEzC8pVFnj3Y+coO00uB8pVAKDu357OanN5Lgl8vphmD0cFFndXaM3vUKVcfrrtlz6YOVQYo6O9tAkqDUEQNKe5ezU9ZsxBEoDDAU1rPXZrqVLAW/eSScY3ZkryujdZUHJFOvJ10Ia/7UiDME8NtgJUjEipvl4tw1KY/SYWcGMRlgJepUhNOCn9px8VXzCBx7/aBFAorBl0+SOV1/yThIoCo4Tqj3IYUmPR+E3+HZlIIUepGJ4rhhHUotYjfgFpJsY0=
   on:
     tags: true
-
-script:
-  - npm run lint
-  - npm test
