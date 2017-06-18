@@ -1,4 +1,4 @@
-# webmanifest loader for webpack [![Version](https://img.shields.io/npm/v/webmanifest-loader.svg)](https://www.npmjs.com/package/webmanifest-loader) [![Build Status](https://img.shields.io/travis/unindented/webmanifest-loader.svg)](https://travis-ci.org/unindented/webmanifest-loader) [![Dependency Status](https://img.shields.io/gemnasium/unindented/webmanifest-loader.svg)](https://gemnasium.com/unindented/webmanifest-loader)
+# webmanifest loader for webpack [![Version](https://img.shields.io/npm/v/webmanifest-loader.svg)](https://www.npmjs.com/package/webmanifest-loader) [![Build Status](https://img.shields.io/travis/unindented/webmanifest-loader.svg)](https://travis-ci.org/unindented/webmanifest-loader)
 
 Parses your [web app manifest](https://www.w3.org/TR/appmanifest/), loading the necessary files from your `icons` and `screenshots` sections, and respecting your `publicPath` configuration.
 
