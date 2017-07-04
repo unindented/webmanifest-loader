@@ -1,7 +1,7 @@
 {
   "name": "webmanifest-loader",
   "description": "Help deal with Web App Manifest files.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "author": {
     "name": "Daniel Perez Alvarez",
