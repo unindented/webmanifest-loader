@@ -85,35 +85,46 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.webmanifest$/,
         include: /assets\//,
-        loader: [
-          'file?name=[name].[ext]',
-          'webmanifest'
-        ].join('!')
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          },
+          {
+            loader: 'webmanifest-loader',
+            options: {
+              name: 'Foobar',
+              shortName: 'Foobar',
+              description: 'Just an example.'
+            }
+          }
+        ]
       },
       {
         test: /\.(jpg|png)$/,
         include: /assets\//,
-        loader: 'file?name=[name].[ext]'
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
+        }
       }
     ]
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
+    new HtmlPlugin({
       title: 'Foobar',
       template: './assets/template.ejs'
     })
-  ],
-
-  webmanifest: {
-    name: 'Foobar',
-    shortName: 'Foobar',
-    description: 'Just an example.'
-  }
+  ]
 }
 ```
 
@@ -122,29 +133,37 @@ Running `webpack` would produce all the necessary files as expected:
 ```
 $ npm run build
 
-> example@1.0.0 build /tmp/example
+> example@1.0.0 build /Users/daniel/Code/webmanifest-loader/example
 > webpack
 
-Hash: ad3ccbf58c6ab5c73672
-Version: webpack 1.14.0
-Time: 418ms
+Hash: 27b5dbf60d53b893f3ee
+Version: webpack 3.0.0
+Time: 410ms
                Asset       Size  Chunks             Chunk Names
-    icon_144x144.png    6.31 kB          [emitted]
-    icon_192x192.png    8.64 kB          [emitted]
-      screenshot.jpg    19.1 kB          [emitted]
-   screenshot@2x.jpg      27 kB          [emitted]
-manifest.webmanifest  564 bytes          [emitted]
-              app.js    1.41 kB       0  [emitted]  app
+manifest.webmanifest  566 bytes          [emitted]
+    icon_144x144.png    0 bytes          [emitted]
+    icon_192x192.png    0 bytes          [emitted]
+      screenshot.jpg    0 bytes          [emitted]
+   screenshot@2x.jpg    0 bytes          [emitted]
+              app.js     2.5 kB       0  [emitted]  app
           index.html  344 bytes          [emitted]
    [0] ./index.js 22 bytes {0} [built]
 Child html-webpack-plugin for "index.html":
                    Asset       Size  Chunks             Chunk Names
-        icon_144x144.png    6.31 kB          [emitted]
-        icon_192x192.png    8.64 kB          [emitted]
-          screenshot.jpg    19.1 kB          [emitted]
-       screenshot@2x.jpg      27 kB          [emitted]
-    manifest.webmanifest  564 bytes          [emitted]
-        + 8 hidden modules
+    manifest.webmanifest  566 bytes          [emitted]
+        icon_144x144.png    0 bytes          [emitted]
+        icon_192x192.png    0 bytes          [emitted]
+          screenshot.jpg    0 bytes          [emitted]
+       screenshot@2x.jpg    0 bytes          [emitted]
+       [0] ./node_modules/html-webpack-plugin/lib/loader.js!./assets/template.ejs 779 bytes {0} [built]
+       [2] (webpack)/buildin/global.js 509 bytes {0} [built]
+       [3] (webpack)/buildin/module.js 517 bytes {0} [built]
+       [4] ./assets/manifest.webmanifest 66 bytes {0} [built]
+       [5] ./assets/icon_144x144.png 62 bytes [built]
+       [6] ./assets/icon_192x192.png 62 bytes [built]
+       [7] ./assets/screenshot.jpg 60 bytes [built]
+       [8] ./assets/screenshot@2x.jpg 63 bytes [built]
+        + 1 hidden module
 ```
 
 Go to the [`example` folder](/example) and try it yourself:
@@ -169,4 +188,4 @@ $ npm run build
 
 ## License
 
-Copyright (c) 2016 Daniel Perez Alvarez ([unindented.org](http://unindented.org/)). This is free software, and may be redistributed under the terms specified in the LICENSE file.
+Copyright (c) 2017 Daniel Perez Alvarez ([unindented.org](http://unindented.org/)). This is free software, and may be redistributed under the terms specified in the LICENSE file.

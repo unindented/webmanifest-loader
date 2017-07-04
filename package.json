@@ -18,15 +18,15 @@
     "test": "run-s test:*"
   },
   "dependencies": {
-    "async": "^2.4.1",
+    "async": "^2.5.0",
     "loader-utils": "^1.1.0",
     "lodash.template": "^4.4.0"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
+    "eslint": "^4.1.1",
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-import": "^2.6.1",
+    "eslint-plugin-node": "^5.1.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "nodeunit": "^0.11.1",
