@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  mode: 'production',
+
   entry: {
     app: './index.js'
   },

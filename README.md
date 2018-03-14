@@ -1,6 +1,6 @@
 # webmanifest loader for webpack [![Version](https://img.shields.io/npm/v/webmanifest-loader.svg)](https://www.npmjs.com/package/webmanifest-loader) [![Build Status](https://img.shields.io/travis/unindented/webmanifest-loader.svg)](https://travis-ci.org/unindented/webmanifest-loader)
 
-Parses your [web app manifest](https://www.w3.org/TR/appmanifest/), loading the necessary files from your `icons` and `screenshots` sections, and respecting your `publicPath` configuration.
+Parses your [web app manifest](https://www.w3.org/TR/appmanifest/), loading the necessary files from your `icons` and `screenshots` sections.
 
 It also treats your web app manifest as a `lodash` template, so you can interpolate variables or add any other logic you need.
 
@@ -136,33 +136,37 @@ $ npm run build
 > example@1.0.0 build /Users/daniel/Code/webmanifest-loader/example
 > webpack
 
-Hash: 27b5dbf60d53b893f3ee
-Version: webpack 3.0.0
-Time: 410ms
+Hash: 6988311fefbc63ba7777
+Version: webpack 4.1.1
+Time: 390ms
+Built at: 2018-3-13 20:23:05
                Asset       Size  Chunks             Chunk Names
-manifest.webmanifest  566 bytes          [emitted]
-    icon_144x144.png    0 bytes          [emitted]
-    icon_192x192.png    0 bytes          [emitted]
-      screenshot.jpg    0 bytes          [emitted]
+manifest.webmanifest  586 bytes          [emitted]
    screenshot@2x.jpg    0 bytes          [emitted]
-              app.js     2.5 kB       0  [emitted]  app
-          index.html  344 bytes          [emitted]
+      screenshot.jpg    0 bytes          [emitted]
+    icon_192x192.png    0 bytes          [emitted]
+    icon_144x144.png    0 bytes          [emitted]
+              app.js  571 bytes       0  [emitted]  app
+          index.html  354 bytes          [emitted]
+Entrypoint app = app.js
    [0] ./index.js 22 bytes {0} [built]
 Child html-webpack-plugin for "index.html":
                    Asset       Size  Chunks             Chunk Names
-    manifest.webmanifest  566 bytes          [emitted]
-        icon_144x144.png    0 bytes          [emitted]
-        icon_192x192.png    0 bytes          [emitted]
-          screenshot.jpg    0 bytes          [emitted]
+    manifest.webmanifest  586 bytes          [emitted]
        screenshot@2x.jpg    0 bytes          [emitted]
-       [0] ./node_modules/html-webpack-plugin/lib/loader.js!./assets/template.ejs 779 bytes {0} [built]
+          screenshot.jpg    0 bytes          [emitted]
+        icon_192x192.png    0 bytes          [emitted]
+        icon_144x144.png    0 bytes          [emitted]
+     + 1 hidden asset
+    Entrypoint undefined = index.html
+       [0] ./assets/manifest.webmanifest 66 bytes {0} [built]
+       [1] (webpack)/buildin/module.js 519 bytes {0} [built]
        [2] (webpack)/buildin/global.js 509 bytes {0} [built]
-       [3] (webpack)/buildin/module.js 517 bytes {0} [built]
-       [4] ./assets/manifest.webmanifest 66 bytes {0} [built]
-       [5] ./assets/icon_144x144.png 62 bytes [built]
-       [6] ./assets/icon_192x192.png 62 bytes [built]
-       [7] ./assets/screenshot.jpg 60 bytes [built]
-       [8] ./assets/screenshot@2x.jpg 63 bytes [built]
+       [4] ./node_modules/html-webpack-plugin/lib/loader.js!./assets/template.ejs 779 bytes {0} [built]
+       [5] ./assets/screenshot@2x.jpg 63 bytes [built]
+       [6] ./assets/screenshot.jpg 60 bytes [built]
+       [7] ./assets/icon_192x192.png 62 bytes [built]
+       [8] ./assets/icon_144x144.png 62 bytes [built]
         + 1 hidden module
 ```
 
