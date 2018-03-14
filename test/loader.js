@@ -2,11 +2,13 @@ const loader = require('../index.js')
 const fixture = JSON.stringify(require('./fixture.json'), null, 2)
 const expected = JSON.stringify(require('./expected.json'), null, 2)
 
+const publicPath = 'http://localhost:3000/'
+
 const mockContext = function (query, callback) {
   const result = {
     options: {
       output: {
-        publicPath: 'http://localhost:3000/'
+        publicPath
       }
     },
 
@@ -50,7 +52,8 @@ module.exports.test = {
     const context = mockContext({
       name: 'foo',
       shortName: 'bar',
-      description: 'baz'
+      description: 'baz',
+      publicPath
     }, callback)
     loader.call(context, fixture)
     test.expect(2)

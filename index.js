@@ -92,9 +92,7 @@ module.exports = function (source, map) {
   const callback = this.async()
 
   const config = loaderUtils.getOptions(this)
-  const options = assign({
-    publicPath: this.options.output.publicPath
-  }, defaults, config)
+  const options = assign(defaults, config)
 
   try {
     const manifest = getManifest(source, options)
